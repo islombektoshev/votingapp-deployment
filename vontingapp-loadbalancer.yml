@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vontingapp-loadbalancer
+  labels:
+    app: votingapp-example
+    name: vontingapp-loadbalancer
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30010
+  selector:
+    app: votingapp-example
+    name: votingapp

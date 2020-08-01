@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: resultapp-loadbalancer
+  labels:
+    app: votingapp-example
+    name: resultapp-loadbalancer
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30011
+  selector:
+    app: votingapp-example
+    name: result
